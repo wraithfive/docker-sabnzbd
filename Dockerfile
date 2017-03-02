@@ -23,7 +23,7 @@ RUN export SABNZBD_VERSION=1.2.2 PAR2CMDLINE_VERSION=v0.6.14 \
     && sed -i "s/ main$/ main contrib non-free/" /etc/apt/sources.list \
     && apt-get -q update \
     && apt-get install -qy curl ca-certificates python-cheetah python-openssl python-yenc unzip unrar p7zip-full build-essential automake \
-    && curl -o /tmp/sabnzbd.tar.gz https://github.com/sabnzbd/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz \
+    && curl -L -o /tmp/sabnzbd.tar.gz https://github.com/sabnzbd/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz \
     && tar xzf /tmp/sabnzbd.tar.gz \
     && mv sabnzbd-* sabnzbd \
     && chown -R sabnzbd: sabnzbd \
