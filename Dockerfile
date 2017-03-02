@@ -25,7 +25,7 @@ RUN export SABNZBD_VERSION=1.2.2 PAR2CMDLINE_VERSION=v0.6.14 \
     && apt-get install -qy curl ca-certificates python-cheetah python-openssl python-yenc unzip unrar p7zip-full build-essential automake \
     && curl -L -o /tmp/sabnzbd.tar.gz https://github.com/sabnzbd/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz \
     && tar xzf /tmp/sabnzbd.tar.gz \
-    && mv sabnzbd-* sabnzbd \
+    && mv SABnzbd-* sabnzbd \
     && chown -R sabnzbd: sabnzbd \
     && curl -L -o /tmp/par2cmdline.tar.gz https://codeload.github.com/Parchive/par2cmdline/tar.gz/${PAR2CMDLINE_VERSION} \
     && tar xzf /tmp/par2cmdline.tar.gz -C /tmp \
