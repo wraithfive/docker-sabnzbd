@@ -27,7 +27,7 @@ RUN export SABNZBD_VERSION=1.2.2 PAR2CMDLINE_VERSION=v0.6.14 \
     && tar xzf /tmp/sabnzbd.tar.gz \
     && mv sabnzbd-* sabnzbd \
     && chown -R sabnzbd: sabnzbd \
-    && curl -o /tmp/par2cmdline.tar.gz https://codeload.github.com/Parchive/par2cmdline/tar.gz/${PAR2CMDLINE_VERSION} \
+    && curl -L -o /tmp/par2cmdline.tar.gz https://codeload.github.com/Parchive/par2cmdline/tar.gz/${PAR2CMDLINE_VERSION} \
     && tar xzf /tmp/par2cmdline.tar.gz -C /tmp \
     && cd /tmp/par2cmdline-* \
     && aclocal \
