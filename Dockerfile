@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 #
 
 RUN groupadd -r -g 666 sabnzbd \
-    && useradd -r -u 666 -g 666 -d /sabnzbd sabnzbd
+    && useradd -l -r -u 666 -g 666 -d /sabnzbd sabnzbd
 
 #
 # Add SABnzbd init script.
