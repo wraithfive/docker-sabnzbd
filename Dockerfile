@@ -19,7 +19,7 @@ RUN chmod 755 /sabnzbd.sh
 # Install SABnzbd and all required dependencies.
 #
 
-RUN export SABNZBD_VERSION=2.3.3 PAR2CMDLINE_VERSION=v0.6.14-mt1 \
+RUN export SABNZBD_VERSION=2.3.3 PAR2CMDLINE_VERSION=0.8.0 \
     && sed -i "s/ main$/ main contrib non-free/" /etc/apt/sources.list \
     && apt-get -q update \
     && apt-get install -qy curl ca-certificates python-cheetah python-openssl python-yenc python-dev python-pip unzip unrar p7zip-full build-essential automake libgomp1 \
@@ -28,7 +28,7 @@ RUN export SABNZBD_VERSION=2.3.3 PAR2CMDLINE_VERSION=v0.6.14-mt1 \
     && tar xzf /tmp/sabnzbd.tar.gz \
     && mv SABnzbd-* sabnzbd \
     && chown -R sabnzbd: sabnzbd \
-    && curl -L -o /tmp/par2cmdline.tar.gz https://codeload.github.com/jkansanen/par2cmdline-mt/tar.gz/${PAR2CMDLINE_VERSION} \
+    && curl -L -o /tmp/par2cmdline.tar.gz https://github.com/Parchive/par2cmdline/releases/download/v${PAR2CMDLINE_VERSION}/par2cmdline-${PAR2CMDLINE_VERSION}.tar.gz \
     && tar xzf /tmp/par2cmdline.tar.gz -C /tmp \
     && cd /tmp/par2cmdline-* \
     && aclocal \
