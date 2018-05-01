@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:stable-slim
 MAINTAINER wraithfive
 ENV LANG C.UTF-8
 #
