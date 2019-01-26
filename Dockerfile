@@ -19,7 +19,7 @@ RUN chmod 755 /sabnzbd.sh
 # Install SABnzbd and all required dependencies.
 #
 
-RUN export SABNZBD_VERSION=2.3.6 PAR2CMDLINE_VERSION=0.8.0 \
+RUN export SABNZBD_VERSION=2.3.7 PAR2CMDLINE_VERSION=0.8.0 \
     && sed -i "s/ main$/ main contrib non-free/" /etc/apt/sources.list \
     && apt-get -q update \
     && apt-get install -qy curl ca-certificates python-cheetah python-openssl python-yenc python-dev python-pip unzip unrar p7zip-full build-essential automake libgomp1 \
