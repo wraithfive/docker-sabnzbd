@@ -1,4 +1,4 @@
-FROM Debian:stable-slim
+FROM debian:stable-slim
 MAINTAINER wraithfive
 
 #
