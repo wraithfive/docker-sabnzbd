@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python:3.7-slim-buster
 MAINTAINER wraithfive
 
 #
@@ -27,12 +27,13 @@ RUN export DEBIAN_FRONTEND=noninteractive &&\
     chmod 755 /sabnzbd.sh &&\
     sed -i "s#deb http://deb.debian.org/debian buster main#deb http://deb.debian.org/debian buster main non-free#g" /etc/apt/sources.list &&\
     apt-get -q update &&\
-    apt-get install -qqy python-cheetah python-sabyenc python-cryptography par2 unrar p7zip-full unzip openssl python-openssl ca-certificates curl &&\
+    apt-get install -qqy build-essential python3-cheetah python3-cryptography par2 unrar p7zip-full unzip openssl python3-openssl ca-certificates curl &&\
+    pip install --no-cache-dir sabyenc &&\
     curl -SL -o /tmp/sabnzbd.tar.gz https://github.com/sabnzbd/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz &&\
     tar xzf /tmp/sabnzbd.tar.gz &&\
     mv SABnzbd-* sabnzbd &&\
     chown -R sabnzbd: sabnzbd &&\
-    apt-get -y remove --purge curl &&\
+    apt-get -y remove --purge curl build-essential &&\
     apt-get -y autoremove &&\
     rm -rf /var/lib/apt/lists/* &&\
     rm -rf /tmp/*
