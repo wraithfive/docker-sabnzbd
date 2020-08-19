@@ -72,4 +72,4 @@ fi
 #
 
 echo "Starting SABnzbd..."
-exec su -pc "./SABnzbd.py -b 0 -f ${CONFIG} ${LISTENER}" ${USER}
+exec su -pc "/sabnzbd/SABnzbd.py -b 0 -f ${CONFIG} ${LISTENER}" ${USER}
