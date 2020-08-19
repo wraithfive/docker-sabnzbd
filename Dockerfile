@@ -27,12 +27,12 @@ RUN export DEBIAN_FRONTEND=noninteractive &&\
     chmod 755 /sabnzbd.sh &&\
     sed -i "s#deb http://deb.debian.org/debian buster main#deb http://deb.debian.org/debian buster main non-free#g" /etc/apt/sources.list &&\
     apt-get -q update &&\
-    apt-get install -qqy build-essential python3-cheetah python3-cryptography par2 unrar p7zip-full unzip openssl python3-openssl ca-certificates curl &&\
-    pip install --no-cache-dir sabyenc feedparser configobj cheroot cherrypy portend chardet notify2 &&\
+    apt-get install -qqy build-essential libffi-dev libssl-dev par2 unrar p7zip-full unzip openssl ca-certificates curl &&\
     curl -SL -o /tmp/sabnzbd.tar.gz https://github.com/sabnzbd/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz &&\
     tar xzf /tmp/sabnzbd.tar.gz &&\
     mv SABnzbd-* sabnzbd &&\
     chown -R sabnzbd: sabnzbd &&\
+    pip install --no-cache-dir -r /sabnzbd/requirements.txt -U
     apt-get -y remove --purge curl build-essential &&\
     apt-get -y autoremove &&\
     rm -rf /var/lib/apt/lists/* &&\
