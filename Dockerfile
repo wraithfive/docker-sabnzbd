@@ -32,7 +32,7 @@ RUN export DEBIAN_FRONTEND=noninteractive &&\
     tar xzf /tmp/sabnzbd.tar.gz &&\
     mv SABnzbd-* sabnzbd &&\
     chown -R sabnzbd: sabnzbd &&\
-    pip install --no-cache-dir -r /sabnzbd/requirements.txt -U
+    pip install --no-cache-dir -r /sabnzbd/requirements.txt -U &&\
     apt-get -y remove --purge curl build-essential &&\
     apt-get -y autoremove &&\
     rm -rf /var/lib/apt/lists/* &&\
